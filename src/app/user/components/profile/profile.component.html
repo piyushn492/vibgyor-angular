@@ -1,0 +1,70 @@
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>{{user?.name}}</h1>
+    </div>
+    <div class="col-sm-2">
+      <!-- <a href="/users" class="pull-right">
+        <img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+      </a> -->
+    </div>
+    <div class="col-sm-6">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label for="td_name">Name</label>
+          <input type="text" class="form-control" id="td_name" name="name" [(ngModel)]="userName" #fullName="ngModel" required>
+          <button mat-raised-button color="accent" [disabled]="!fullName.dirty" (click)="updateUserName()">Update Name</button>
+        </div>
+        <div class="form-group">
+          <label for="td_quantity">Email</label>
+          <input type="email" class="form-control" id="td_quantity" name="quantity" [ngModel]="email" disabled>
+        </div>
+        <div class="form-group">
+          <input type="button" class="form-control" value="Change Password" (click)="showDetails()">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="hideModal()" class="close">&times;</span>
+      <p>
+        <b>Change password</b>
+      </p>
+
+
+      <form #password="ngForm" ngForm="password">
+        <div class="form-group">
+          <label for="td_name">Current Password</label>
+          <input type="text" class="form-control" id="currentPassword" name="currentPassword" [(ngModel)]="currentPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="td_quantity">New Password</label>
+          <input type="text" class="form-control" id="newPassword" name="newPassword" [(ngModel)]="newPassword" required>
+        </div>
+        <div class="form-group">
+          <input type="button" class="form-control" value="Update Password" (click)="updatePassword()" [disabled]="!password.valid">
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+
+  <h3>
+    Billing address details
+  </h3>
+
+  <app-address></app-address>
+  <br>
+  <br>
+</div>

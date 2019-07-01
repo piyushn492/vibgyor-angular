@@ -1,0 +1,33 @@
+mat-card {
+  width: 320px;
+  margin: 10px;
+  height: 420px;
+  cursor: pointer;
+}
+
+mat-card-content {
+  width: 300px;
+  height: 120px;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+mat-slider {
+  width: 300px;
+}
+
+span .active {
+  background: green;
+}
+

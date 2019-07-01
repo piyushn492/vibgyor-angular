@@ -1,0 +1,27 @@
+<div class="container">
+  <button mat-raised-button color="accent" style="float: right;" (click)="addCatalog()">Add Catalog</button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Catalog Image</th>
+        <th>Catalog Name </th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let catalog of catalogs">
+        <td>
+          <img [src]="catalog.catalogImageUrl" style="height: 30%; width:auto">
+        </td>
+        <td>{{catalog.catalogName}}</td>
+        <td>
+          <button mat-raised-button color="primary" (click)="editCatalog(catalog)">Edit</button>
+        </td>
+        <td>
+          <button mat-raised-button color="warn" (click)="deleteCatalog(catalog)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

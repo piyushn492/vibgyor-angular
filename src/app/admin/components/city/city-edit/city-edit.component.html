@@ -1,0 +1,19 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field>
+    <input  type="text" matInput placeholder="City Name" formControlName="cityName" required>
+    <mat-error *ngIf="!firstFormGroup.controls['cityName'].valid && firstFormGroup.controls['cityName'].touched"> City Name is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="State" formControlName="state" required>
+      <mat-option *ngFor="let state of states" [value]="state.name">
+        {{ state.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="!firstFormGroup.controls['state'].valid && firstFormGroup.controls['state'].touched"> State is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <div>
+    <button mat-raised-button [disabled]="!firstFormGroup.valid" (click)="Update(firstFormGroup.value)" color="warn">Update</button>
+  </div>
+</form>

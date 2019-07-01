@@ -1,0 +1,37 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>Address</mat-label>
+    <input id="address" type="textarea" matInput formControlName="address" required>
+    <mat-error *ngIf="!firstFormGroup.controls['address'].valid && firstFormGroup.controls['address'].touched"> Address is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>State</mat-label>
+    <mat-select formControlName="state" (selectionChange)="getStates($event)" required>
+      <mat-option *ngFor="let state of states" [value]="state.name">
+        {{ state.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="!firstFormGroup.controls['state'].valid && firstFormGroup.controls['state'].touched"> State is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>City</mat-label>
+    <mat-select formControlName="city" required>
+      <mat-option *ngFor="let city of cities" [value]="city.name">
+        {{ city.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="!firstFormGroup.controls['city'].valid && firstFormGroup.controls['city'].touched"> City is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>ZipCode</mat-label>
+    <input type="number" matInput formControlName="zipCode" required>
+    <mat-error *ngIf="!firstFormGroup.controls['zipCode'].valid && firstFormGroup.controls['zipCode'].touched"> ZipCode is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <div>
+    <button mat-raised-button [disabled]="!firstFormGroup.valid" (click)="update(firstFormGroup.value)" color="primary">Update</button>
+  </div>
+</form>

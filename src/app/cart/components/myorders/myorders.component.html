@@ -1,0 +1,87 @@
+<!-- <h4> <b>My Orders</b> </h4>
+<mat-list *ngFor="let cartOrder of cartOrders">
+  <mat-list-item>
+    <b>Order Date : </b>{{" "+cartOrder.orderDate | date:'fullDate'}}</mat-list-item>
+  <mat-list-item>
+    <b>Order ID : </b> {{" "+cartOrder.id}} </mat-list-item>
+  <mat-list-item>
+    <b>Current Status : </b> {{" "+cartOrder.deliveryStatus}} </mat-list-item>
+   <div *ngFor="let cart of cartOrders.carts">
+      Total price : {{totalPrice + cart.price}}
+    </div> -->
+<!-- <span class="example-fill-remaining-space"></span>
+  <button mat-raised-button color="primary" (click)="showDetails(cartOrder)"> View Details</button>
+  <mat-divider></mat-divider>
+</mat-list> -->
+
+<div class="panel panel-default panel-order">
+  <div class="panel-heading">
+    <strong>Order history</strong>
+  </div>
+</div>
+<div class="panel-body" *ngFor="let cartOrder of cartOrders">
+  <div class="row">
+    <div class="col-md-11">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-right">
+            <label class="label label-success">placed</label>
+          </div>
+          <span>
+            <strong>Order # {{" "+cartOrder.id}}</strong>
+          </span>
+          <br>
+          <button mat-raised-button color="primary" (click)="showDetails(cartOrder)">Order Details</button>
+        </div>
+        <div class="col-md-12">
+          order made on:{{" "+cartOrder.orderDate | date:'fullDate'}} 
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="panel-footer"></div>
+
+<div class="container">
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="hideModal()" class="close">&times;</span>
+      <p>
+        <b>Order Summary</b>
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Product Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cart of carts">
+            <td>
+              <img [src]="cart.imageUrl" style="height: 30px; width: 30px">
+            </td>
+            <td>{{cart.name}}</td>
+            <td>{{cart.productPrice}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <b>Total Price</b>
+            </td>
+            <td>
+              <b>{{totalAmount}}</b>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<p style="color: black; text-align: center" *ngIf="catalog">
+  <b>
+    <i style="color: deeppink">{{catalog?.catalogName + " paints "}}</i>
+  </b>
+</p>
+<div class="container" *ngIf="catalog">
+  <img [src]="catalog?.anotherImage" class="center">
+  <br>
+</div>
+
+<div fxLayout="column">
+  <div fxLayout="row wrap">
+    <mat-card *ngFor="let paint of paints">
+      <img [src]="paint?.imageUrl" style="height: 50%; width: 50%;">
+      <br>
+      <mat-card-content>
+        <b>{{paint?.name}}</b>
+        <br>
+        <br> {{paint?.description}}
+      </mat-card-content>
+      <mat-card-actions>
+        <b> {{" Price : "+paint?.price}}</b>
+        <button mat-raised-button style="float: right;" color='warn' (click)="addToCart(paint)"> + cart</button>
+        <button mat-raised-button style="float: right;" color='primary' (click)="selectedCard(paint)"> info</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

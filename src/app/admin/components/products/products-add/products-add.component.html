@@ -1,0 +1,48 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Paint Name" formControlName="name" required>
+    <mat-error *ngIf="!firstFormGroup.controls['name'].valid && firstFormGroup.controls['name'].touched"> Paint Name is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="CategoryName" formControlName="categoryName" required> 
+      <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id">
+        {{ catalog.catalogName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input type="text" matInput placeholder="CategoryName Name" formControlName="categoryName" required>
+    <mat-error *ngIf="!firstFormGroup.controls['categoryName'].valid && firstFormGroup.controls['categoryName'].touched">
+      Category Name is required. </mat-error>
+  </mat-form-field> -->
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Image Url" formControlName="imageUrl" required>
+    <mat-error *ngIf="!firstFormGroup.controls['imageUrl'].valid && firstFormGroup.controls['imageUrl'].touched">
+      Image url is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Another Image Url" formControlName="anotherImage" required>
+    <mat-error *ngIf="!firstFormGroup.controls['imageUrl'].valid && firstFormGroup.controls['imageUrl'].touched">
+      Another Image url is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="number" matInput placeholder="Price" formControlName="price" required>
+    <mat-error *ngIf="!firstFormGroup.controls['imageUrl'].valid && firstFormGroup.controls['imageUrl'].touched">
+      Price is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Description" formControlName="description" required>
+    <mat-error *ngIf="!firstFormGroup.controls['imageUrl'].valid && firstFormGroup.controls['imageUrl'].touched">
+      Description is required. </mat-error>
+  </mat-form-field>
+  <br>
+
+  <div>
+    <button mat-raised-button [disabled]="!firstFormGroup.valid" (click)="add(firstFormGroup.value)" color="warn">Add</button>
+  </div>
+</form>

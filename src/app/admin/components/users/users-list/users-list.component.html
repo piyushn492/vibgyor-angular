@@ -1,0 +1,27 @@
+<div class="container">
+    <button mat-raised-button color="accent" style="float: right;" (click)="addUser()">Add User</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of adminUsers">
+          <td>
+            {{user.name}}
+          </td>
+          <td>{{user.username}}</td>
+          <td>
+            <button mat-raised-button color="primary" (click)="editUser(user)">Edit</button>
+          </td>
+          <td>
+            <button mat-raised-button color="warn" (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

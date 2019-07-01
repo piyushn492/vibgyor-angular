@@ -1,0 +1,15 @@
+.disp {
+  margin: 20px;
+  display: table-cell;
+  height:400px;
+}
+
+.row {
+  width: 90%;
+  margin: 20px;
+  display: table;
+}
+
+.disp img {
+    height:300px
+}

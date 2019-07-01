@@ -1,0 +1,49 @@
+<div class="container">
+  <span>
+    <b>
+      Please fill the form below, our consultant will get back to you with best available options.
+    </b>
+  </span>
+
+  <br>
+  <br>
+  <form [formGroup]="contactForm" (ngSubmit)="book(contactForm.value)" class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="fullName">
+      <mat-error *ngIf="!contactForm.controls['fullName'].valid && contactForm.controls['fullName'].touched"> Name is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Mobile number</mat-label>
+      <input type="number" matInput formControlName="mobile">
+      <mat-error *ngIf="!contactForm.controls['mobile'].valid && contactForm.controls['mobile'].touched"> Mobile number is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="paintDesc"></textarea>
+      <mat-error *ngIf="!contactForm.controls['paintDesc'].valid && contactForm.controls['paintDesc'].touched"> Description is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Pincode</mat-label>
+      <input type="number" matInput formControlName="pincode">
+      <mat-error *ngIf="!contactForm.controls['pincode'].valid && contactForm.controls['pincode'].touched"> Pincode is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Full Address</mat-label>
+      <textarea matInput formControlName="address"></textarea>
+      <mat-error *ngIf="!contactForm.controls['address'].valid && contactForm.controls['address'].touched"> Address is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <button type="submit" mat-raised-button [disabled]="contactForm.invalid">Save</button>
+
+  </form>
+</div>

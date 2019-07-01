@@ -1,0 +1,114 @@
+<!-- <div fxLayout="column" fxFlex fxFlexOffset="120px" fxFlexOffset.xs="0">
+  <div fxLayout="row" fxLayoutGap="1.5%">
+    <mat-card>
+      <mat-card-title>Users</mat-card-title>
+      <mat-card-content>{{users}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Orders</mat-card-title>
+      <mat-card-content>{{orders}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Revenue</mat-card-title>
+      <mat-card-content>{{totalPrice}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Catagories</mat-card-title>
+      <mat-card-content>{{catalog}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Products</mat-card-title>
+      <mat-card-content>{{products}}</mat-card-content>
+    </mat-card>
+  </div>
+</div> -->
+
+<div fxLayout="row" fxLayoutAlign="center center" class="row-example">
+  <div>
+    <mat-card>
+      <mat-card-title>Users</mat-card-title>
+      <mat-card-content>{{users}}</mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-title>Orders</mat-card-title>
+      <mat-card-content>{{orders}}</mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-title>Revenue</mat-card-title>
+      <mat-card-content>{{totalPrice}}</mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-title>Catagories</mat-card-title>
+      <mat-card-content>{{catalog}}</mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-title>Products</mat-card-title>
+      <mat-card-content>{{products}}</mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <mat-expansion-panel style="background-color: darkgrey">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>Book a Consultant requests</b>
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <div *ngFor="let requests of bookRequests">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <strong>Name :</strong> {{requests.fullName}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <strong>Mobile :</strong>{{requests.mobile}}</h6>
+          <p class="card-text">
+            <strong>Query :</strong> {{requests.paintDesc}}</p>
+          <p class="card-text">
+            <strong>Address :</strong> {{requests.address + "," + requests.pincode }}</p>
+          <button mat-raised-button color="primary" (click)="done(requests)">Done</button>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </mat-expansion-panel>
+</div>
+
+<!-- <div fxLayout="row" fxLayoutAlign="center center" class="row-example">
+  <div style="display: block">
+    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+  </div>
+
+  <div *ngIf="pieChartDatas">
+    <div style="display: block">
+      <canvas baseChart [data]="pieChartDatas" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="pieChartColor"></canvas>
+    </div>
+  </div>
+</div> -->
+<!-- <div fxLayout="row" fxLayoutAlign="center center" class="row-example">
+  <span>Color count category wise</span>
+  <div *ngIf="pieChartDatas">
+    <div fxFlex="100%">
+      <canvas baseChart [data]="pieChartDatas" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="pieChartColor"></canvas>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div fxLayout="column" fxFlex fxFlexOffset="120px" fxFlexOffset.xs="0">
+  
+</div> -->

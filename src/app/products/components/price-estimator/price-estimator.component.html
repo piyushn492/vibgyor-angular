@@ -1,0 +1,22 @@
+<mat-card>
+  <form #formCtrl="ngForm">
+    <mat-form-field class="example-full-width">
+      <input type="number" matInput placeholder="Enter carpet area" name="squareFit" [(ngModel)]="squareFt" required>
+    </mat-form-field>
+    <br>
+    <mat-card-actions>
+      <button [disabled]="!formCtrl.form.valid" style="margin-left: 200px" mat-raised-button style="float: left;" color='primary'
+        (click)="calculateFare()">Calculate</button>
+    </mat-card-actions>
+  </form> <br>
+  <div id="price" style="display: none;">
+    <ul>
+      <li>
+        Required paint in liters : {{paintReq}}
+      </li>
+      <li>
+        Approx. Price : {{price | currency:"&#8377;"}}
+      </li>
+    </ul>
+  </div>
+</mat-card>

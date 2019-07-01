@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>
+    <b>Store locator</b>
+  </mat-card-title>
+  <mat-card-subtitle style="font-size: 15px">Find stores near by you.</mat-card-subtitle>
+
+  <!-- <form [formGroup]="form">
+    <input matInput placeholder="Enter city" formControlName="searchControl" required>
+  </form> -->
+
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+    </mat-form-field>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let city of cities" [value]="city.name">{{city.name}}</mat-option>
+    </mat-autocomplete>
+  </form>
+  <br>
+
+  <div class="row" *ngIf="storeAvailability">
+    <div class="disp" *ngFor="let store of stores">
+      <mat-card style="width: 300px; height: 200px;">
+        <mat-card-title> {{store.storeName}}</mat-card-title>
+        <mat-card-subtitle> {{"Mobile "+store.mobile}}</mat-card-subtitle>
+        <mat-card-subtitle>{{"Contact Name: "+store.storeContactPersonName}}</mat-card-subtitle>
+        <mat-card-subtitle>{{"Address "+store.storeAddress}}</mat-card-subtitle>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="!storeAvailability">
+      <mat-card>
+          <img mat-card-image class="center" src="assets/currentlyNA.png" style="width: 40%; height: 40%">
+      </mat-card>
+  </div> -->
+  <!-- <table [hidden]="search">
+    <tr>
+      <th>City</th>
+    </tr>
+    <tr *ngFor="let city of cities">
+        <mat-card style="height: 50px; width: 200px; font-size: 17px" (click)="getStores(city.name)">{{city.name}}</mat-card>
+    </tr>
+  </table> -->
+
+  <!-- <table [hidden]="!search">
+    <tr *ngFor="let store of stores">
+      <mat-card>{{store.storeName}}</mat-card>
+    </tr>
+  </table> -->
+
+
+
+
+</mat-card>

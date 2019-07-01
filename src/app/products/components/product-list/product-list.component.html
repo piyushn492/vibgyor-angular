@@ -1,0 +1,54 @@
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()">
+</div>
+
+<div fxLayout="column" fxFlex fxFlexOffset="120px" fxFlexOffset.xs="0">
+
+  <b>Filters :</b>
+  <mat-radio-group [(ngModel)]="selectedButton">
+    <mat-radio-button (click)="buttonClicked('All')">All</mat-radio-button>
+    <mat-radio-button class="example-radio-button" *ngFor="let catalog of catalogs" (click)="buttonClicked(catalog)">
+      {{catalog.catalogName}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+
+  <div fxLayout="row" fxLayoutGap="1.5%">
+    <div>
+      <span>
+        <b>Sort by price : </b>
+      </span>
+      <button type="button" class="btn btn-outline-primary" (click)="sortHighToLow()">High to Low</button>
+      <button type="button" class="btn btn-outline-primary" (click)="sortLowToHigh()">Low to High</button>
+      <!-- <button mat-rasied-button (click)="sortHighToLow()" style="cursor: pointer"></button>
+      <button mat-rasied-button (click)="sortLowToHigh()" style="cursor: pointer">  </button> -->
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="1.5%">
+    <div>
+      <span>
+        <b>Price filter : </b>
+      </span>
+      <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="1500" (change)="priceFilter($event)"></mat-slider>
+    </div>
+  </div>
+
+  <!-- <p mat-raised-button (click)="sortHighToLow()">Sort By Lower to Higher</p> -->
+
+  <div fxLayout="row wrap">
+    <mat-card *ngFor="let paint of paints" appCardHover>
+      <img [src]="paint.imageUrl" style="height: 200px; width: 200px;">
+      <br>
+      <mat-card-content>
+        <b>{{paint.name}}</b>
+        <br>
+        <br> {{paint.description}}
+      </mat-card-content>
+      <mat-card-actions>
+        <b> {{" Price : "+paint.price}}</b>
+        <button mat-raised-button style="float: right;" color='warn' (click)="addToCart(paint)"> + cart</button>
+        <button mat-raised-button style="float: right;" color='primary' (click)="selectedCard(paint)"> info</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

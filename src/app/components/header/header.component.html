@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <a href="#" style="text-decoration: none">
+    <img src="/assets/icon.png" style="height: 50px; width: 70px"> &nbsp;
+    <span style="font-size: 20px;">Vibgyor paints</span>
+  </a>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <a routerLink="cart/view" routerLinkActive="success" *ngIf="!admin">
+    <mat-icon class="fa fa-shopping-cart" matBadge={{cartLength}} matBadgeOverlap="false" style="font-size:25px"></mat-icon>
+    <!-- < style="height: 40px; width: 40px"> &nbsp; -->
+  </a>
+
+  <a routerLink="store" routerLinkActive="success" style="text-decoration: none" *ngIf="!admin">
+    <img src="/assets/locator.png" style="height: 30px; width: 30px"> &nbsp;
+  </a>
+</mat-toolbar>
+<!-- <button mat-raised-button color="warn">Sign in</button> -->

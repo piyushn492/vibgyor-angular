@@ -1,0 +1,68 @@
+<div class="container" *ngIf="(carts?.length != 0)">
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:50%">Product</th>
+        <th style="width:10%">Price</th>
+        <th style="width:8%">Quantity</th>
+        <th style="width:22%" class="text-center">Subtotal</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts">
+        <td data-th="Product">
+          <div class="row">
+            <div class="col-sm-2 hidden-xs">
+              <img src={{cart?.imageUrl}} class="img-responsive" />
+            </div>
+            <div class="col-sm-10">
+              <h4 class="nomargin">{{cart.name}}</h4>
+            </div>
+          </div>
+        </td>
+        <td data-th="Price">{{cart.productPrice}}</td>
+        <td data-th="Quantity">
+          <input type="number" min="1" class="form-control text-center" [value]="cart.productQuantity" (input)="updatePrice($event.target.value, cart)">
+        </td>
+        <td data-th="Subtotal" class="text-center">{{cart.price * cart.productQuantity }}</td>
+        <td class="actions" data-th="">
+          <!-- <button class="btn btn-info btn-sm">
+            <i class="fa fa-refresh"></i>
+          </button> -->
+          <button class="btn btn-danger btn-sm" (click)="deleteOrder(cart)">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <!-- <tr class="visible-xs">
+        <td class="text-center">
+          <strong>Total 1.99</strong>
+        </td>
+      </tr> -->
+      <tr>
+        <td>
+          <!-- <button routerLink="product/list" class="btn btn-warning">
+            <i class="fa fa-angle-left"></i> Continue Shopping</button> -->
+        </td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center">
+          <strong>Total {{totalPrice}}</strong>
+        </td>
+        <td>
+          <button class="btn btn-success btn-block" (click)="placeOrder()">Place Order
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div *ngIf="(carts?.length === 0)">
+  <mat-card>
+      <img mat-card-image class="center" src="assets/empty-cart.gif" style="width: 40%; height: 40%">
+  </mat-card>
+</div>

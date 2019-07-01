@@ -1,0 +1,31 @@
+<div class="container">
+  <form [formGroup]="firstFormGroup">
+
+    <mat-form-field appearance="outline">
+      <mat-label>CatalogName</mat-label>
+      <input id="address" type="textarea" matInput formControlName="catalogName" required>
+      <mat-error *ngIf="!firstFormGroup.controls['catalogName'].valid && firstFormGroup.controls['catalogName'].touched"> CatalogName is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CatalogImageUrl</mat-label>
+      <input type="text" matInput formControlName="catalogImageUrl" required>
+      <mat-error *ngIf="!firstFormGroup.controls['catalogImageUrl'].valid && firstFormGroup.controls['catalogImageUrl'].touched">
+        CatalogImageUrl is required. </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Alt imageUrl</mat-label>
+      <input type="text" matInput formControlName="anotherImage" required>
+      <mat-error *ngIf="!firstFormGroup.controls['anotherImage'].valid && firstFormGroup.controls['anotherImage'].touched">
+        CatalogImageUrl is required. </mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <div>
+      <button type="submit" mat-raised-button [disabled]="firstFormGroup.invalid" (click)="updateImage(firstFormGroup.value)" color="warn">Update</button>
+      <button mat-raised-button (click)="back()" color="primary">Back</button>
+    </div>
+  </form>
+</div>

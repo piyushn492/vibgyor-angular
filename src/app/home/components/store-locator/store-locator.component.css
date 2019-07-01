@@ -1,0 +1,14 @@
+mat-card {
+  margin: 10px;
+}
+
+.disp {
+  margin: 20px;
+  display: table-cell;
+}
+
+.row {
+  width: 90%;
+  margin: 20px;
+  display: table;
+}

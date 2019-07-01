@@ -1,0 +1,36 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Store Name" formControlName="storeName" required>
+    <mat-error *ngIf="!firstFormGroup.controls['storeName'].valid && firstFormGroup.controls['storeName'].touched"> Store Name is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="ContactPersonName Name" formControlName="contactPersonName" required>
+    <mat-error *ngIf="!firstFormGroup.controls['contactPersonName'].valid && firstFormGroup.controls['contactPersonName'].touched">
+      Contact Person Name is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="number" matInput placeholder="Mobile Number" formControlName="mobile" required>
+    <mat-error *ngIf="!firstFormGroup.controls['mobile'].valid && firstFormGroup.controls['mobile'].touched">
+      Mobile number is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="City" formControlName="city" required>
+      <mat-option *ngFor="let city of cities" [value]="city.name">
+        {{ city.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="!firstFormGroup.controls['city'].valid && firstFormGroup.controls['city'].touched"> City is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Address" formControlName="address" required>
+    <mat-error *ngIf="!firstFormGroup.controls['address'].valid && firstFormGroup.controls['address'].touched">
+      Address is required. </mat-error>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button [disabled]="!firstFormGroup.valid" (click)="Update(firstFormGroup.value)" color="warn">Update</button>
+  </div>
+</form>

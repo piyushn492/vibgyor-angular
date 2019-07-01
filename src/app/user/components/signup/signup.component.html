@@ -1,0 +1,46 @@
+<form [formGroup]="registrationForm" (ngSubmit)="register(registrationForm.value);">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>FullName</mat-label>
+      <input matInput formControlName="fullName">
+      <mat-error *ngIf="!registrationForm.controls['fullName'].valid && registrationForm.controls['fullName'].touched"> Name is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched"> Email is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password">
+      <mat-error *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched"> Password is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Repeat Password</mat-label>
+      <input matInput formControlName="passwordrepeat">
+      <mat-error *ngIf="!registrationForm.controls['passwordrepeat'].valid && registrationForm.controls['passwordrepeat'].touched">
+        Confirm Password is required. </mat-error>
+    </mat-form-field>
+    <br>
+
+    <hr>
+
+
+    <button color="primary" mat-raised-button [disabled]="! registrationForm.valid">Register</button>
+  </div>
+
+  <!-- <div class="container signin">
+    <p>Already have an account?
+      <a (click)="signIn()">Sign in</a>.</p>
+  </div> -->
+</form>

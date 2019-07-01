@@ -1,0 +1,77 @@
+<!-- <div *ngIf="paint">
+  <div style="display:table-cell; text-align:center; display: block; margin: auto auto;">
+    <img [src]="paint.anotherImage" style="height: 300px; width: 60%">
+    <br>
+    <br>
+    <span style="font-size: 17px; color:deeppink;">
+      <b>{{paint.name}}</b>
+    </span> <br>
+    <span> {{paint.description}} </span>
+  </div>
+  <br>
+  <mat-card>
+    <div>
+      <mat-card-actions>
+        <button mat-raised-button style="float: right;" color='primary'>Add to cart</button>
+      </mat-card-actions>
+    </div>
+
+    <mat-tab-group>
+      <mat-tab label="Features">
+        <ul *ngFor="let furtherdetails of paint.furtherDetails">
+          <li>
+            {{furtherdetails}}
+          </li>
+        </ul>
+      </mat-tab>
+      <mat-tab label="Price Estimate">
+        <app-price-estimator [paintId]="paintId"></app-price-estimator>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div> -->
+
+<div class="container" *ngIf="paint" [@flyInOut]="in">
+  <div class="row">
+    <div class="col-sm-8">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img [src]="paint.anotherImage" style="height: 500px; widows:710px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div>
+        <span style="font-size: 17px; color:deeppink;">
+          <b>{{paint.name}}</b>
+        </span>
+        <br>
+        <span> {{paint.description}} </span>
+        <br>
+        <h4>Features : </h4>
+        <ul *ngFor="let furtherdetails of paint.furtherDetails">
+          <li>
+            {{furtherdetails}}
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div>
+        <span><b>Price : {{paint.price}}</b></span>
+        <span class="example-fill-remaining-space"></span>
+        <button mat-raised-button style="float: right;" color='warn' (click)="addToCart(paint)">+ cart</button>
+      </div>
+      <div>
+        <br>
+        <br>
+        <h4>Price Estimator : </h4>
+        <app-price-estimator (childEvent)="childData=$event" [paintId]="paintId"></app-price-estimator>
+      </div>
+      <!-- <span>{{childData}}</span> -->
+    </div>
+  </div>
+  <hr>
+</div>
+<!-- <app-price-estimator [paintId]="paintId"></app-price-estimator> -->

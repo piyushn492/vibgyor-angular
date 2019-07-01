@@ -1,0 +1,17 @@
+form {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 0.1px dotted grey;
+  padding: 15px;
+}
+
+.example-full-width {
+  width: 50%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 700px;
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+<form [formGroup]="firstFormGroup">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Full Name" formControlName="fullName" required>
+    <mat-error *ngIf="!firstFormGroup.controls['fullName'].valid && firstFormGroup.controls['fullName'].touched"> Full Name is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="email" matInput placeholder="Email ID" formControlName="emailID" required>
+    <mat-error *ngIf="!firstFormGroup.controls['emailID'].valid && firstFormGroup.controls['emailID'].touched">
+      Email ID is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Password" formControlName="password" required>
+    <mat-error *ngIf="!firstFormGroup.controls['password'].valid && firstFormGroup.controls['password'].touched">
+      Password number is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Role" formControlName="role" required>
+      <mat-option value="staff">
+        staff
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="!firstFormGroup.controls['role'].valid && firstFormGroup.controls['role'].touched"> Role is required. </mat-error>
+  </mat-form-field>
+  <br>
+  <div>
+    <button mat-raised-button [disabled]="!firstFormGroup.valid" (click)="addUser(firstFormGroup.value)" color="warn">Add</button>
+  </div>
+</form>

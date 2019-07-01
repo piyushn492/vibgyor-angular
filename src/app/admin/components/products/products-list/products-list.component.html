@@ -1,0 +1,60 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<button mat-raised-button color="accent" style="float: right;" (click)="addPaint()">Add Paint</button>
+
+<div class="example-container">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.imageUrl" style="height: 35px; width: 35px;">
+      </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="anotherImage">
+      <th mat-header-cell *matHeaderCellDef> Another Image </th>
+      <td mat-cell *matCellDef="let element">  <img [src]="element.anotherImage" style="height: 35px; width: 35px;"></td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="editProduct(element)">Edit</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="delete(element)">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Desctiption </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,7 @@
+mat-card {
+  width: 220px;
+  margin: 10px;
+  height: 120px;
+  cursor: pointer;
+  background-color: slategrey
+}

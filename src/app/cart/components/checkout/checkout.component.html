@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your address details</ng-template>
+      <app-address></app-address>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your card details</ng-template>
+      <form id="creditCardForm" class="form-horizontal" [formGroup]="secondFormGroup">
+        <div class="form-group">
+          <label class="col-xs-3 control-label">Credit card type</label>
+          <div class="col-xs-3 selectContainer">
+            <select class="form-control" name="cardType">
+              <option value="">Select a type</option>
+              <option value="Ae">American Express</option>
+              <option value="Master">Master</option>
+              <option value="Visa">Visa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-3 control-label">Credit card number</label>
+          <div class="col-xs-5">
+            <input type="text" class="form-control" formControlName="cardNumber" name="cardNumber" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-9 col-xs-offset-3">
+            <button type="submit" class="btn btn-default" value="PlaceOrder" [disabled]="!secondFormGroup.valid" (click)="placeOrder(secondFormGroup.value)">Place Order</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>

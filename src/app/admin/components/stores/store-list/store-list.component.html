@@ -1,0 +1,33 @@
+<div class="container">
+  <button mat-raised-button color="accent" style="float: right;" (click)="addStore()">Add Store</button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact Person </th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let store of stores">
+        <td>
+          {{store.storeName}}
+        </td>
+        <td>{{store.storeContactPersonName}}</td>
+        <td>{{store.mobile}}</td>
+        <td>{{store.cityName}}</td>
+        <td>{{store.storeAddress}}</td>
+        <td>
+          <button mat-raised-button color="primary" (click)="editStore(store)">Edit</button>
+        </td>
+        <td>
+          <button mat-raised-button color="warn" (click)="deleteStore(store)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

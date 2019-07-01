@@ -1,0 +1,190 @@
+<nav class="navbar navbar-inverse" *ngIf="!admin">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a routerLink="home" routerLinkActive="success">Vibgyor paints</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="home" routerLinkActive="success">Home</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="product/list">All Products</a>
+            </li>
+            <li>
+              <a routerLink="catalog/list">Products Category</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="home/book" routerLinkActive="success">Book a Consultant</a>
+        </li>
+        <li>
+          <a routerLink="home/about" routerLinkActive="success">About</a>
+        </li>
+        <li>
+          <a routerLink="home/contact" routerLinkActive="success">Contact</a>
+        </li>
+        <li>
+          <!-- <form [formGroup]="form">
+            <mat-form-field> -->
+          <!-- <input type="text" matInput name="search" [formControl]="productSearch" placeholder="Search product.." style=" width: 80%;" [matAutocomplete]="auto" style="background-color: white; height: 10%"> -->
+          <!-- <input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto"> -->
+          <!-- </mat-form-field> -->
+          <a (click)="openSearch()" style="cursor: pointer;">Search products</a>
+          <!-- <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let paint of paints" [value]="paint.name" (click)="getProduct(paint)">{{paint.name}}</mat-option>
+            </mat-autocomplete>
+          </form> -->
+        </li>
+
+        <!-- <li>
+          <a routerLink="user/testimonials" routerLinkActive="success">Testimonials</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" *ngIf="isLoggedIn">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white">{{user['name']}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="user/profile">Profile</a>
+            </li>
+            <li>
+               <a routerLink="cart/orders">My Orders</a>
+            </li>
+            <li>
+              <a (click)="logout()">
+                <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li *ngIf="isLoggedIn" style="cursor: pointer !important;">
+          <a (click)="logout()">
+            <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+        </li> -->
+        <li *ngIf="! isLoggedIn">
+          <a routerLink="user/login" routerLinkActive="success">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" (click)="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" style="height: 5%; width: 70%">
+        <mat-label>Search product..</mat-label>
+        <input type="text" matInput name="search" [formControl]="productSearch" [matAutocomplete]="auto"
+          style="background-color: white;">
+        <!-- <input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto"> -->
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let paint of paints" [value]="paint.name" (click)="getProduct(paint)">{{paint.name}}</mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-inverse" *ngIf="admin">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a routerLink="home" routerLinkActive="success">Vibgyor paints</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="admin/home" routerLinkActive="success">Home</a>
+        </li>
+        <li>
+          <a routerLink="admin/catalogs/list" routerLinkActive="success">Categories</a>
+        </li>
+        <li>
+          <a routerLink="admin/product-list" routerLinkActive="success">Products</a>
+        </li>
+        <li>
+          <a routerLink="admin/city-list" routerLinkActive="success">City</a>
+        </li>
+        <li>
+          <a routerLink="admin/store-list" routerLinkActive="success">Stores</a>
+        </li>
+        <li>
+          <a routerLink="admin/users" routerLinkActive="success">Users</a>
+        </li>
+
+        <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="product/list">All Products</a>
+            </li>
+            <li>
+              <a routerLink="catalog/list">Products Category</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="home/book" routerLinkActive="success">Book a Consultant</a>
+        </li>
+        <li>
+          <a routerLink="home/about" routerLinkActive="success">About</a>
+        </li>
+        <li>
+          <a routerLink="home/contact" routerLinkActive="success">Contact</a>
+        </li>
+        <li>
+          <a routerLink="user/testimonials" routerLinkActive="success">Testimonials</a>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" *ngIf="isLoggedIn">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white">{{user['name']}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="user/profile">Profile</a>
+            </li>
+            <!-- <li>
+              <a routerLink="cart/orders">My Orders</a>
+            </li> -->
+            <li>
+              <a (click)="logout()">
+                <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li *ngIf="isLoggedIn" style="cursor: pointer !important;">
+            <a (click)="logout()">
+              <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+          </li> -->
+        <li *ngIf="! isLoggedIn">
+          <a routerLink="user/login" routerLinkActive="success">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

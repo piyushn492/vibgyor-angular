@@ -1,0 +1,32 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="vl">
+        <span class="vl-innertext">OR</span>
+      </div>
+
+      <div class="col">
+        <a class="fb btn" (click)="socialSignIn('facebook')" style="text-align: center; cursor:pointer;"> Login with Facebook
+        </a>
+        <br>
+        <br>
+        <br>
+        <a class="google btn" (click)="socialSignIn('google')" style="text-align: center; cursor:pointer;"> Login with Google+
+        </a>
+      </div>
+
+      <div class="col">
+        <p> Sign in manually</p>
+        <form #userlogin="ngForm" (ngSubmit)="login(userlogin.value)">
+          <input type="email" name="email" placeholder="Email address" ngModel required>
+          <input type="password" name="password" placeholder="Password" ngModel required>
+          <input type="submit" value="Login">
+          <br>
+          <input style="background-color:#45a049" type="button" value="Sign Up" (click)="signUp()">
+          <!-- <a style="color:green" (click)="signUp()" style="text-align: center; cursor:pointer;">Sign up</a> -->
+        </form>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="snackbar">Invalid Username or password.</div>
