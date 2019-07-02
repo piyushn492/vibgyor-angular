@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   buildName: 'Development',
-  securedApiEndPoint: 'http://localhost:7070',
-  apiEndPoint: 'http://localhost:7070',
-  authEndPoint: 'http://localhost:7070/oauth/token'
+  securedApiEndPoint: 'https://vibgyor-json.herokuapp.com',
+  apiEndPoint: 'https://vibgyor-json.herokuapp.com',
+  authEndPoint: 'https://vibgyor-json.herokuapp.com/oauth/token'
 };
